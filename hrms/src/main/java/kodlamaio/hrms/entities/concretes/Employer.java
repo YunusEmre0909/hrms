@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name="employers")
 @AllArgsConstructor
 @NoArgsConstructor 
-public class Employer {
+public class Employer{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
