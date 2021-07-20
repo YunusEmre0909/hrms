@@ -20,8 +20,8 @@ public class Staff {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
+	@Column(name="staff_id")
+	private int staffId;
 	
 	@Column(name="email")
 	private String email;

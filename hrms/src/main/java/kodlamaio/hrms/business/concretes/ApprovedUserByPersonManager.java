@@ -23,7 +23,7 @@ public class ApprovedUserByPersonManager implements ApprovedUserByPersonService 
 	}
 
 	@Override
-	public DataResult<List<ApprovedUserByPersonel>> getAll() {
+	public DataResult<List<ApprovedUserByPersonel>> getAll() { 
 		
 		return new SuccessDataResult<List<ApprovedUserByPersonel>>(this.approvedUserByPersonelDao.findAll(),"Personel tarafından onaylanan kullanıcılar listelendi");
 	}
