@@ -14,7 +14,6 @@ import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
 
 
-
 @Service
 public class JobSeekerManager implements JobSeekerService {
 	
