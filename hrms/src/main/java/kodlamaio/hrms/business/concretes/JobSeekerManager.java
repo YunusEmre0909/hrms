@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobSeekerService;
 import kodlamaio.hrms.core.DataResult;
-import kodlamaio.hrms.core.ErrorResult;
 import kodlamaio.hrms.core.Result;
 import kodlamaio.hrms.core.SuccessDataResult;
 import kodlamaio.hrms.core.SuccessResult;
