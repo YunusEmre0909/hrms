@@ -13,24 +13,17 @@ import kodlamaio.hrms.core.SuccessDataResult;
 import kodlamaio.hrms.core.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlamaio.hrms.entities.concretes.JobSeeker;
-import kodlamaio.hrms.verification.abstracts.JobSeekerEmailCheckService;
-import kodlamaio.hrms.verification.abstracts.MernisService;
 
 
 @Service
 public class JobSeekerManager implements JobSeekerService {
 	
 	private JobSeekerDao jobSeekerDao;
-	private JobSeekerEmailCheckService emailCheckService;
-	private MernisService mernisService;
 
 	@Autowired
-	public JobSeekerManager(JobSeekerDao jobSeekerDao,
-			JobSeekerEmailCheckService emailCheckService,MernisService mernisService) {
+	public JobSeekerManager(JobSeekerDao jobSeekerDao) {
 		super();
 		this.jobSeekerDao = jobSeekerDao;
-		this.emailCheckService=emailCheckService;
-		this.mernisService=mernisService;
 	}
 
 	@Override
@@ -42,13 +35,10 @@ public class JobSeekerManager implements JobSeekerService {
 	@Override
 	public Result add(JobSeeker jobSeeker) {
 		
-		if (emailCheckService.emailCheck(jobSeeker)==true 
-				&& mernisService.mernisCheck(jobSeeker)== true) {
 			this.jobSeekerDao.save(jobSeeker);
 
 			return new SuccessResult("İş arayan eklendi");
-		}
-		return new ErrorResult("email doğrulamsı yapılamadı");
+		
 	}
 
 }

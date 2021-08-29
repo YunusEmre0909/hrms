@@ -13,23 +13,16 @@ import kodlamaio.hrms.core.SuccessDataResult;
 import kodlamaio.hrms.core.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hrms.entities.concretes.Employer;
-import kodlamaio.hrms.verification.abstracts.EmployerEmailCheckService;
-import kodlamaio.hrms.verification.abstracts.HrmsCheckService;
 
 @Service
 public class EmployerManager implements EmployerService{
 	
 	 private EmployerDao employerDao;
-	 private EmployerEmailCheckService emailCheckService;
-	 private HrmsCheckService hrmasCheckService;
-
 	 @Autowired
-	public EmployerManager(EmployerDao employerDao,
-			EmployerEmailCheckService emailCheckService,HrmsCheckService hrmsCheckService) {
+	public EmployerManager(EmployerDao employer ) {
 		super();
 		this.employerDao = employerDao;
-		this.emailCheckService=emailCheckService;
-		this.hrmasCheckService=hrmsCheckService;
+		
 	}
 
 	@Override
@@ -42,12 +35,12 @@ public class EmployerManager implements EmployerService{
 	@Override
 	public Result add(Employer employer) {
 		
-		if (emailCheckService.emailCheck(employer)==true && hrmasCheckService.hrmsCheck(employer)==true) {
+		
 			this.employerDao.save(employer);
 			return new SuccessResult("iş veren eklendi");
 			
-		}
-			return new ErrorResult("Email doğrulaması başarısız");
+		
+		
 
 	}
 
