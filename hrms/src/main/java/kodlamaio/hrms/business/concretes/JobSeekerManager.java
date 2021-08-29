@@ -18,6 +18,7 @@ import kodlamaio.hrms.entities.concretes.JobSeeker;
 public class JobSeekerManager implements JobSeekerService {
 	
 	private JobSeekerDao jobSeekerDao;
+	
 
 	@Autowired
 	public JobSeekerManager(JobSeekerDao jobSeekerDao) {
