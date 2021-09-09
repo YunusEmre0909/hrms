@@ -24,9 +24,16 @@ public class JobSeekerCvManager implements JobSeekerCvService{
 
 
 	@Override
-	public DataResult<List<JobSeekerCv>> findAll() {
+	public DataResult<List<JobSeekerCv>> getAll() {
 		
 		return new SuccessDataResult<List<JobSeekerCv>>(this.jobSeekercvDao.findAll(),"CV'ler listelendi");
+	}
+
+
+	@Override
+	public DataResult<List<JobSeekerCv>> getByJobSeeker_Id(int jobSeekerId) {
+		
+		return new SuccessDataResult<List<JobSeekerCv>>(this.jobSeekercvDao.getByJobSeeker_JobSeekerId(jobSeekerId),"iş arayan Cv'si getirildi");
 	}
 
 }

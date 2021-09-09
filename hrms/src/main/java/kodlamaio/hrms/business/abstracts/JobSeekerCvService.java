@@ -7,5 +7,7 @@ import kodlamaio.hrms.entities.concretes.JobSeekerCv;
 
 public interface JobSeekerCvService {
 
-	DataResult<List<JobSeekerCv>> findAll();
+	DataResult<List<JobSeekerCv>> getAll();
+	
+	DataResult<List<JobSeekerCv>> getByJobSeeker_Id(int jobSeekerId);
 }

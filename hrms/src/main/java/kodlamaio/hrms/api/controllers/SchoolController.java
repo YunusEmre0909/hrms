@@ -9,31 +9,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.hrms.business.abstracts.CityService;
+import kodlamaio.hrms.business.abstracts.SchoolService;
 import kodlamaio.hrms.core.DataResult;
 import kodlamaio.hrms.core.Result;
-import kodlamaio.hrms.entities.concretes.City;
+import kodlamaio.hrms.entities.concretes.School;
 
 @RestController
-@RequestMapping("/api/Cities")
-public class CityController {
+@RequestMapping("/api/schools")
+public class SchoolController {
 	
-	private CityService cityService;
+	private SchoolService schoolService;
 
 	@Autowired
-	public CityController(CityService cityService) {
+	public SchoolController(SchoolService schoolService) {
 		super();
-		this.cityService = cityService;
+		this.schoolService = schoolService;
 	}
+	
+	@PostMapping("/schools")
+	public Result add(@RequestBody School school) {
+		return this.schoolService.add(school);
+	}
+	
 	@GetMapping("/getAll")
-	public DataResult<List<City>> getAll(){
+	public DataResult<List<School>> getAll(){
 		
-		return this.cityService.getAll();
-	}
-	@PostMapping("/add")
-	public Result add(@RequestBody City city) {
-		
-		return this.cityService.add(city);
+		return this.schoolService.getAll();
 	}
 
 }
