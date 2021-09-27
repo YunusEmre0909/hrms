@@ -41,4 +41,10 @@ public class JobSeekerManager implements JobSeekerService {
 		
 	}
 
+	@Override
+	public DataResult<JobSeeker> getByJobSeekerId(int jobSeekerId) {
+		
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByJobSeekerId(jobSeekerId));
+	}
+
 }

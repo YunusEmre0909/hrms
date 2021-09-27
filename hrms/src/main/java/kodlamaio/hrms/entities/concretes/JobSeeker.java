@@ -55,5 +55,8 @@ public class JobSeeker{
 	
 	@OneToMany(mappedBy = "jobSeeker")
 	private List<JobSeekerCv> jobSeekerCvs;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+	private List<Image> images;
 
 }

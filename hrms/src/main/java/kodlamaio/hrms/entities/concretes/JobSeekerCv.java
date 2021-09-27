@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,13 +27,9 @@ public class JobSeekerCv {
 	@Column(name="id")
 	private int id;
 	
-	@NotNull
+	
 	@Column(name="cover_letter")
 	private String coverLetter;
-	
-	
-	@Column(name="image")
-	private String image;
 	
 	@ManyToOne
 	@JoinColumn(name="job_seeker_id")
@@ -55,4 +50,6 @@ public class JobSeekerCv {
 	@OneToMany(mappedBy = "jobSeekerCv")
 	private List<SocialMedia> socialMedias;
 
+	@OneToMany(mappedBy = "jobSeekerCv")
+	private List<Image> images;
 }
