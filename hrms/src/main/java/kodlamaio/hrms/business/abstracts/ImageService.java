@@ -10,7 +10,7 @@ import kodlamaio.hrms.entities.concretes.Image;
 
 public interface ImageService {
 	
-	Result add(Image image,MultipartFile  imageFile);
+	Result add(MultipartFile  imageFile,int jobSeekerId);
 	
 	DataResult<List<Image>> getAll();
 
